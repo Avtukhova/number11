@@ -33,16 +33,20 @@ public class StatsService {
     }
 
     public int maxSales(int[] sales) {
-        int maxMonth = sales[0];
+        int maxMonth1 = sales[0];
+        int maxMonth2 = sales[0 + 1];
         int month = 0;
         for (int sale : sales) {
-            if (sale > sales[maxMonth]) {
-                maxMonth = month;
+            if (sale > sales[maxMonth1]) {
+                maxMonth1 = month;
+            }
+            if (sale >= sales[maxMonth1]) {
+                maxMonth2 = month;
             }
 
             month = month + 1; // следующий рассматриваемый месяц имеет номер на 1 больше
         }
-        return maxMonth;
+        return maxMonth2;
     }
 
 
@@ -53,6 +57,7 @@ public class StatsService {
         for (int i = 0; i < sales.length; i++) {
             sum += sales[i];
             average = sum / sales.length;
+
         }
 
         int saleMonth = 0;

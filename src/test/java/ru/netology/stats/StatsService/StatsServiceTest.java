@@ -44,12 +44,11 @@ class StatsServiceTest {
     void maxSales() {
         StatsService service = new StatsService();
         int[] sales = {8, 15, 13, 15, 17, 20, 19, 20, 7, 14, 14, 18};
-        int expected1 = 5;
-        int expected2 = 7;
+        int expected = 7;
         int actual = service.maxSales(sales);
 
 
-        assertEquals(expected1, expected2, actual);
+        assertEquals(expected, actual);
 
     }
 
