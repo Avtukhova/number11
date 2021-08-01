@@ -58,6 +58,7 @@ public class StatsService {
             sum += sales[i];
             average = sum / sales.length;
 
+
         }
 
         int saleMonth = 0;
@@ -70,7 +71,9 @@ public class StatsService {
         return countsaleMonth;
 
 
+
     }
+
 
     public int overAverageSum(int[] sales) {
         int average = 0;
