@@ -3,99 +3,87 @@ package ru.netology.stats.StatsService;
 public class StatsService {
     public int totalSum(int[] sales) {
         int sum = 0;
-        for (int i = 0; i < sales.length; i++) {
-            sum += sales[i];
+        for (int sale : sales) {
+            sum += sale;
         }
         return sum;
     }
 
 
     public int averageSum(int[] sales) {
-        int average = 0;
-        int sum = 0;
-        for (int i = 0; i < sales.length; i++) {
-            sum += sales[i];
-            average = sum / sales.length;
-        }
-        return average;
+        return totalSum(sales) / sales.length;
     }
 
     public int minSales(int[] sales) {
-        int minMonth = 0;
-        int month = 0;
+        int minMonth = sales[0];
         for (int sale : sales) {
-            if (sale < sales[minMonth]) {
-                minMonth = month;
+            if (sale < minMonth) {
+                minMonth = sale;
             }
-            month = month + 1; // следующий рассматриваемый месяц имеет номер на 1 больше
+
         }
-        return minMonth;
+        int monthCount = 0;
+        int minSales = 0;
+        for (int sale : sales) {
+            monthCount = monthCount + 1;
+            if (sale == minMonth) {
+                minSales = monthCount;
+
+            }
+        }
+        return minSales;
+
     }
 
     public int maxSales(int[] sales) {
-        int maxMonth1 = sales[0];
-        int maxMonth2 = sales[0 + 1];
-        int month = 0;
+        int maxMonth = sales[0];
         for (int sale : sales) {
-            if (sale > sales[maxMonth1]) {
-                maxMonth1 = month;
-            }
-            if (sale >= sales[maxMonth1]) {
-                maxMonth2 = month;
+            if (sale > maxMonth) {
+                maxMonth = sale;
             }
 
-            month = month + 1; // следующий рассматриваемый месяц имеет номер на 1 больше
         }
-        return maxMonth2;
+        int monthCount = 0;
+        int maxSales = 0;
+        for (int sale : sales) {
+            monthCount = monthCount + 1;
+            if (sale == maxMonth) {
+                maxSales = monthCount;
+            }
+
+        }
+        return maxSales;
     }
-
-
 
     public int underAverageSum(int[] sales) {
-        int average = 0;
-        int sum = 0;
-        for (int i = 0; i < sales.length; i++) {
-            sum += sales[i];
-            average = sum / sales.length;
-
-
-        }
-
-        int saleMonth = 0;
-        int countsaleMonth = 0;
+        int average = averageSum(sales);
+        int monthCount = 0;
         for (int sale : sales) {
-            if (sale < average) {
-                countsaleMonth++;
-            }
+            if (sale < average)
+                monthCount++;
         }
-        return countsaleMonth;
 
-
+        return monthCount;
 
     }
-
 
     public int overAverageSum(int[] sales) {
-        int average = 0;
-        int sum = 0;
-        for (int i = 0; i < sales.length; i++) {
-            sum += sales[i];
-            average = sum / sales.length;
+        int average = averageSum(sales);
+        int monthCount = 0;
+        for (int sale : sales) {
+            if (sale > average)
+           monthCount++;
         }
 
-        int saleMonth = 0;
-        int countsaleMonth = 0;
-        for (int sale : sales) {
-            if (sale > average) {
-                countsaleMonth++;
-            }
-        }
-        return countsaleMonth;
+        return monthCount;
+
+    }
+
 
 
     }
 
-}
+
 
 
 

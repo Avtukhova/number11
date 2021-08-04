@@ -6,73 +6,50 @@ import ru.netology.stats.StatsService.StatsService;
 import static org.junit.jupiter.api.Assertions.*;
 
 class StatsServiceTest {
+    private int[] sales = {8, 15, 13, 15, 17, 20, 19, 20, 7, 14, 14, 18};
+    private StatsService service = new StatsService();
 
     @Test
     public void totalSum() {
-        StatsService service = new StatsService();
-        int[] sales = {8, 15, 13, 15, 17, 20, 19, 20, 7, 14, 14, 18};
-        int expected = 180;
-        int actual = service.totalSum(sales);
-
-        assertEquals(expected, actual);
+        assertEquals(180, service.totalSum(sales));
     }
 
 
     @Test
     void averageSum() {
-        StatsService service = new StatsService();
-        int[] sales = {8, 15, 13, 15, 17, 20, 19, 20, 7, 14, 14, 18};
-        int expected = 15;
-        int actual = service.averageSum(sales);
-
-        assertEquals(expected, actual);
+        assertEquals(15, service.averageSum(sales));
 
     }
 
     @Test
     void minSales() {
-        StatsService service = new StatsService();
-        int[] sales = {8, 15, 13, 15, 17, 20, 19, 20, 7, 14, 14, 18};
-        int expected = 8;
-        int actual = service.minSales(sales);
-
-        assertEquals(expected, actual);
+        assertEquals(9, service.minSales(sales));
 
     }
 
     @Test
     void maxSales() {
-        StatsService service = new StatsService();
-        int[] sales = {8, 15, 13, 15, 17, 20, 19, 20, 7, 14, 14, 18};
-        int expected = 7;
-        int actual = service.maxSales(sales);
-
-
-        assertEquals(expected, actual);
+        assertEquals(8, service.maxSales(sales));
 
     }
 
     @Test
     void underAverageSum() {
-        StatsService service = new StatsService();
-        int[] sales = {8, 15, 13, 15, 17, 20, 19, 20, 7, 14, 14, 18};
         int expected = 5;
         int actual = service.underAverageSum(sales);
 
 
-        assertEquals(expected, actual);
+        assertEquals(5, service.underAverageSum(sales));
 
     }
 
     @Test
     void overAverageSum() {
-        StatsService service = new StatsService();
-        int[] sales = {8, 15, 13, 15, 17, 20, 19, 20, 7, 14, 14, 18};
         int expected = 5;
         int actual = service.overAverageSum(sales);
 
 
-        assertEquals(expected, actual);
+        assertEquals(5, service.overAverageSum(sales));
 
     }
 
