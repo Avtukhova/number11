@@ -35,20 +35,12 @@ class StatsServiceTest {
 
     @Test
     void underAverageSum() {
-        int expected = 5;
-        int actual = service.underAverageSum(sales);
-
-
         assertEquals(5, service.underAverageSum(sales));
 
     }
 
     @Test
     void overAverageSum() {
-        int expected = 5;
-        int actual = service.overAverageSum(sales);
-
-
         assertEquals(5, service.overAverageSum(sales));
 
     }
